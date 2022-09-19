@@ -1,12 +1,24 @@
-resource "aws_ecr_repository" "nii" {
-  for_each             = toset(var.ecr_name)
-  name                 = each.key
-  image_tag_mutability = var.image_mutability
-  encryption_configuration {
-    encryption_type = var.encrypt_type
-  }
-  image_scanning_configuration {
-    scan_on_push = true
-  }
-  tags = var.tags
+variable "ecr_name" {
+  description = "The name of the ECR registry"
+  type        = any
+  default     = null
+}
+
+variable "image_mutability" {
+  description = "Provide image mutability"
+  type        = string
+  default     = "IMMUTABLE"
+}
+
+
+variable "encrypt_type" {
+  description = "Provide type of encryption here"
+  type        = string
+  default     = "KMS"
+}
+
+variable "tags" {
+  description = "The key-value maps for tagging"
+  type        = map(string)
+  default     = {}
 }
