@@ -1,6 +1,7 @@
 ###
-dev_s3_bucket = "dev_s3_bucket-east-1"
+s3_buckets = "dev-s3-bucket-east-1"
 
 tags = {
-  "Environment"            = "Dev"
+  "Environment" = "Dev"
 }
+
