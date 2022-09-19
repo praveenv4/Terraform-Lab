@@ -5,7 +5,8 @@ variable "aws_region" {
 
 variable "s3_buckets" {
   type        = string
-  description = "(required since we are not using 'bucket') Creates a unique bucket name beginning with the specified prefix. Conflicts with bucket."
+  description = "Creates a unique bucket name beginning with the specified prefix. Conflicts with bucket."
+  default     = ""
 }
 
 variable "tags" {
